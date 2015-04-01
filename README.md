@@ -7,6 +7,26 @@ https://github.com/synrc/fs FS Listener project.
 ## Examples
 
 ```elixir
+# mix.exs
+
+  defp deps do
+    [
+      ...
+      {:fswatcher, git: "https://github.com/gniquil/fswatcher.git"},
+      ...
+    ]
+  end
+
+```
+
+Then in your console
+
+```
+mix deps.get
+iex -S mix
+```
+
+```elixir
 import Fswatcher
 
 watch "." do
@@ -24,7 +44,7 @@ end
 and executes the block IF both the given path pattern, and file event flags match.
 
 The path pattern is the same glob used in `Path.wildcard`. The file event flags
-can be atoms or a list of atoms. List implies `OR`.
+can be an atom or a list of atoms. List implies `OR`.
 
 Now update the files that match those glob pattern and observe what iex does.
 
